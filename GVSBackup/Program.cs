@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 
-namespace GVSBackup//Закомментировать
+namespace GVSBackup
 {
     class Program
     {
@@ -55,7 +55,7 @@ namespace GVSBackup//Закомментировать
             try
             {
                 string[] SDPDirectories = null;
-                SDPDirectories = Directory.GetDirectories(ops.SDPBackupPath); //Оптимизировать
+                SDPDirectories = Directory.GetDirectories(ops.SDPBackupPath); 
                 //QuantityOfDirectory = 0;
 
                 foreach (string dir in SDPDirectories)
@@ -92,13 +92,13 @@ namespace GVSBackup//Закомментировать
             try
             {
                 string[] ORADirectories = null;
-                ORADirectories = Directory.GetDirectories(ops.OracleBackupPath); //Оптимизировать
+                ORADirectories = Directory.GetDirectories(ops.OracleBackupPath); 
                 foreach (string dir in ORADirectories)
                 {
                     string[] DelDirectories = null;
                     DelDirectories = Directory.GetDirectories(ops.OracleBackupPath);
 
-                    if (((DateTime.Now.DayOfYear - Directory.GetCreationTime(dir).DayOfYear) > compareCode) && (DelDirectories.Count() > FileCount))//Ошибка выявлена, присваевалось значение переменной внутри цикла foreach которое не менялось в иечении всего цикла, и соответственно колличество папок не пересчитывалось каждую итерацию, а было неизменным, что и порждало ошибку. Т.к значение переменной в цикле не обновлялось. 
+                    if (((DateTime.Now.DayOfYear - Directory.GetCreationTime(dir).DayOfYear) > compareCode) && (DelDirectories.Count() > FileCount))
                     {
                         Directory.Delete(dir, true);
                     }
@@ -115,7 +115,7 @@ namespace GVSBackup//Закомментировать
             try
             {
                 string[] SUDDirectories = null;
-                SUDDirectories = Directory.GetDirectories(ops.SudimostBackupPath);//Оптимизировать
+                SUDDirectories = Directory.GetDirectories(ops.SudimostBackupPath);
                 foreach (string dir in SUDDirectories)
                 {
                     string[] DelDirectories = null;
